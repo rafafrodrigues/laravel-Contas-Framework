@@ -28,6 +28,6 @@
 		<input type="text" name="valor" class="form-control" value="{{old('valor')}}">
 	</div>
 
-	<button type="submit" class="btn btn-outline-info">Cadastrar</button>
+	<button type="submit" class="btn btn-outline-info mb-4">Cadastrar</button>
 </form>
 @stop

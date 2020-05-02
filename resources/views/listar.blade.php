@@ -26,6 +26,7 @@
 @endif
 
 <table class="table table-hover text-center">
+	
 	<thead>
 		<tr>
 			<th>ID</th>
@@ -35,17 +36,18 @@
 		</tr>
 	</thead>
 	@foreach ($contas_pagar as $c)
+	<tbody>
     <tr>
 		<td>{{$c->id}}</td>
 		<td>{{$c->descricao}}</td>
 		<td>{{$c->valor}}</td>
-		<td><a href="{{ action('ContasPagarController@editar', $c->id) }}" class="btn btn-outline-info btn-small">Editar</a>
+		<td><a href="{{ action('ContasPagarController@editar', $c->id) }}" class="btn btn-outline-info btn-sm">Editar</a>
 		<!-- <td><a href="{{ action('ContasPagarController@deletar', $c->id) }}" class="btn btn-outline-danger btn-small">Excluir</a></td> -->
-		<a href="#" class="btn btn-outline-danger btn-small ml-3" onclick="apagar('{{action("ContasPagarController@deletar", $c->id)}}')";>Excluir</a></td>
+		<a href="#" class="btn btn-outline-danger btn-sm ml-2 mr-2 my-1" onclick="apagar('{{action("ContasPagarController@deletar", $c->id)}}')";>Excluir</a></td>
 	</tr>
-
+    </tbody>
     @endforeach		
 </table>	 
 
-<a href="{{ action('ContasPagarController@cadastro') }}" class="btn btn-outline-info btn-small mb-3">Cadastrar Conta</a>
-@stop 
+<a href="{{ action('ContasPagarController@cadastro') }}" class="btn btn-outline-info btn-md">Cadastrar Conta</a>
+@stop

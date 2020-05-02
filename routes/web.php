@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+//rotas referente Contas Pagar
 Route::get('/contas', 'ContasPagarController@listar');
 
 Route::get('/contas/cadastro', 'ContasPagarController@cadastro');
@@ -29,3 +29,14 @@ Route::get('/contas/editar/{id}', 'ContasPagarController@editar');
 Route::post('/contas/update/{id}', 'ContasPagarController@update');
 
 Route::get('/contas/deletar/{id}', 'ContasPagarController@deletar');
+
+//rotas referente Contas Receber
+Route::get('/contas/receber', 'ContasReceberController@listarReceber');
+
+Route::get('/contas/receber/cadastro', 'ContasReceberController@cadastroReceber');
+
+Route::post('/contas/receber/salvar', 'ContasReceberController@salvarReceber');
+
+Route::get('/contas/receber/editar/{id}', 'ContasReceberController@editarReceber');
+
+Route::get('/contas/receber/deletar/{id}', 'ContasReceberController@deletarReceber');
