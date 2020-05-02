@@ -31,10 +31,12 @@ class ContasReceberController extends Controller
         $validator = Validator::make(
             [
                 'descricao_rec' => $descricao_rec,
+                'cliente' => $cliente,
                 'valor_rec' => $valor_rec 
             ],
             [
                 'descricao_rec' => 'required|min:6', //determinar no mínimo 6 caracteres
+                'cliente' => 'required|min:6',
                 'valor_rec' => 'required|numeric'
             ],
             [
@@ -56,6 +58,7 @@ class ContasReceberController extends Controller
     	return redirect()->action('ContasReceberController@listarReceber')->withInput();
     }
 
+    //recuperar informações do id para exibir na view para depois atualizar com o método updateReceber()
     public function editarReceber($id) {
        $contas_receber = ContasReceber::find($id);
 
@@ -66,10 +69,30 @@ class ContasReceberController extends Controller
        }
     }
 
+    //salvar alteração no banco de dados
+    public function updateReceber($id) {
+       $descricao_rec = Request::input('descricao_rec');
+       $cliente = Request::input('cliente');
+       $valor_rec = Request::input('valor_rec');
+
+       $contas_receber = ContasReceber::find($id);
+       $contas_receber->descricao_rec = $descricao_rec;
+       $contas_receber->cliente = $cliente;
+       $contas_receber->valor_rec = $valor_rec;
+       $contas_receber->save();
+
+       return redirect()->action('ContasReceberController@listarReceber')->withInput();
+    }
+
     public function deletarReceber($id) {
         $contas_receber = ContasReceber::find($id);
         $contas_receber->delete();
 
         return redirect()->action('ContasReceberController@listarReceber'); 
+    }
+
+    public function listaDataCadReceber() {
+    	$contas_receber = ContasReceber::all();
+    	return view('data-cadastro-receber')->with('contas_receber', $contas_receber);
     }
 }
