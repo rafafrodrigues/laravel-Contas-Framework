@@ -38,5 +38,8 @@ Route::get('/contas/receber/cadastro', 'ContasReceberController@cadastroReceber'
 Route::post('/contas/receber/salvar', 'ContasReceberController@salvarReceber');
 
 Route::get('/contas/receber/editar/{id}', 'ContasReceberController@editarReceber');
+Route::post('/contas/receber/update/{id}', 'ContasReceberController@updateReceber');
 
 Route::get('/contas/receber/deletar/{id}', 'ContasReceberController@deletarReceber');
+
+Route::get('/contas/receber/dataCadastro', 'ContasReceberController@listaDataCadReceber');

@@ -50,9 +50,11 @@
   <![endif]-->  
 
 </head>
-<body style="margin-bottom: 260px;">
-
-  <nav class="navbar navbar-dark navbar-expand-md navbar-default bg-info mb-3 py-4">
+<body>
+  
+  <!-- footer fixado, usar essa conf = fixed-bottom(<body style="margin-bottom: 260px;">) -->
+  <!-- usado sticky-top no lugar de fixed-top para possilitar uso correto do BOTÃO HUMBURGUER -->  
+  <nav class="navbar navbar-dark navbar-expand-md navbar-default bg-info mb-3 py-4 sticky-top">
     <div class="container-fluid">
       <h1 class="navbar-brand"><em>Sistema de Clientes</em></h1>          
        
@@ -84,17 +86,37 @@
     	@yield('content')
     </div>
 
-    <footer class="text-light text-center bg-primary py-4 mt-4 fixed-bottom">
-      <div class="">
-        Desenvolvido por Rafael Fernandes
-      </div>
+    <footer class="bg-primary mt-4">
+      <!-- MENU -->
+      <div class="container">
+        <div class="row text-light">
+          <div class="col-md-2 col-sm-6 col-12">
+            <ul class="navbar-nav">
+              <li class="mt-3">
+                <a href="{{ action('ContasPagarController@listar') }}" class="text-light">Contas Pagar</a>
+              </li>           
+              <li class="mt-2">
+                <a href="{{ action('ContasReceberController@listarReceber') }}" class="text-light">Contas Receber</a>
+              </li>
+              <li class="mt-2 mb-2">
+                <a href="{{ action('ContasReceberController@listaDataCadReceber')}}" class="text-light">Data Cadastro</a>
+              </li>
+            </ul>
+          </div> 
 
-      <!-- botão volta ao topo -->
-      <a href="#top" class="text-light pb-5">
-          <!-- <i class="fas fa-arrow-circle-up mt-4 bg-danger text-dark" style="font-size: 180px"></i> -->
-        <p class="display-3 pb-5 mb-5">^</p>
-      </a>
-    
+          <div class="col-md-10 col-sm-6 col-12">
+             <div class="py-4 mt-4 mr-5">
+               <p class="text-center text-light mr-5">Desenvolvido por Rafael Fernandes</p>
+             </div>
+
+              <!-- botão volta ao topo -->
+              <a href="#top" class="text-light pb-5">
+                  <!-- <i class="fas fa-arrow-circle-up mt-4 bg-danger text-dark" style="font-size: 180px"></i> -->
+                <p class="display-3 pb-5 mb-5">^</p>
+              </a>
+           </div> 
+        </div>  
+      </div>    
     </footer>
     
     <script src="../resources/js/bootstrap.js"></script>
