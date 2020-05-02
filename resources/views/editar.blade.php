@@ -2,7 +2,7 @@
 @section('title', 'Editar Contas')
 
 @section('content')
-<h1>Editar Contas - {{ $contas_pagar->id }}</h1>
+<h1 class="mt-5 mb-3">Editar Contas - {{ $contas_pagar->id }}</h1>
 <form action="{{ action('ContasPagarController@update', $contas_pagar->id)}}" method="post">
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}">
 
@@ -19,6 +19,6 @@
 		<input type="text" name="valor" class="form-control" value="{{ $contas_pagar->valor }}">
 	</div>
 
-	<button type="submit" class="btn btn-outline-info">Salvar alteração</button>
+	<button type="submit" class="btn btn-outline-info mb-5 mt-3">Salvar alteração</button>
 </form>
 @stop

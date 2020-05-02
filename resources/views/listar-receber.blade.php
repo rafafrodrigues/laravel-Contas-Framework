@@ -50,5 +50,7 @@
     @endforeach		
 </table>	 
 
-<a href="{{ action('ContasReceberController@cadastroReceber') }}" class="btn btn-outline-info btn-md">Cadastrar Conta Receber</a>
+<a href="{{ action('ContasReceberController@cadastroReceber') }}" class="btn btn-outline-info btn-md mr-4">Cadastrar Conta Receber</a>
+
+<a href="{{ action('ContasReceberController@listaDataCadReceber') }}" class="btn btn-outline-info btn-md">Data cadastro</a>
 @stop

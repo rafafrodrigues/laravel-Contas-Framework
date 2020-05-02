@@ -2,7 +2,7 @@
 @section('title', 'Cadastrar Contas')
 
 @section('content')
-<h1>Cadastro de contas</h1>
+<h1 class="mb-4 mt-5">Cadastro de contas</h1>
 @if (count($errors) > 0)
   <div class="alert alert-danger">
   	 <strong>Erros:</strong>
@@ -28,6 +28,6 @@
 		<input type="text" name="valor" class="form-control" value="{{old('valor')}}">
 	</div>
 
-	<button type="submit" class="btn btn-outline-info mb-4">Cadastrar</button>
+	<button type="submit" class="btn btn-outline-info mb-5 mt-2">Cadastrar</button>
 </form>
 @stop
